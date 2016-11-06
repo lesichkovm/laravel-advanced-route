@@ -1,0 +1,20 @@
+{
+    "name": "laravel-advanced-route",
+    "description": "Advanced route class for Laravel",
+    "version": "1.0.0",
+    "type": "library",
+    "keywords": ["route", "advanced", "laravel", "php", "lesichkov"],    
+    "homepage": "http://github.com/lesichkovm/laravel-advanced-route",
+    "license": "commercial",
+    "authors": [
+        {
+            "name": "Milan Lesichkov",
+            "email": "lesichkovm@gmail.com",
+            "homepage": "http://lesichkov.co.uk",
+            "role": "Lead Developer"
+        }
+    ],
+    "autoload": {
+        "files": ["src/AdvancedRoute.php"]
+    }
+}
