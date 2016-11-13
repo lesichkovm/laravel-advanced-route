@@ -4,9 +4,9 @@ class AdvancedRoute {
 
     public static function controller($path, $controllerClassName) {
         $class = new ReflectionClass('App\Http\Controllers\\' . $controllerClassName);
-        
+
         $publicMethods = $class->getMethods(ReflectionMethod::IS_PUBLIC);
-        
+
         foreach ($publicMethods as $method) {
             $methodName = $method->name;
             if ($methodName == 'getMiddleware') {
@@ -15,20 +15,21 @@ class AdvancedRoute {
             if (self::stringStartsWith($methodName, 'any')) {
                 $slug = self::slug($method);
                 //var_dump($slug);
-                Route::any($path . '/' . $slug, 'QuoteController@' . $methodName);
+                Route::any($path . '/' . $slug, $controllerClassName . '@' . $methodName);
             }
             if (self::stringStartsWith($methodName, 'get')) {
                 $slug = self::slug($method);
                 //var_dump($slug);
-                Route::get($path . '/' . $slug, 'QuoteController@' . $methodName);
+                Route::get($path . '/' . $slug, $controllerClassName . '@' . $methodName);
             }
             if (self::stringStartsWith($methodName, 'post')) {
                 $slug = self::slug($method);
                 //var_dump($slug);
-                Route::post($path . '/' . $slug, 'QuoteController@' . $methodName);
+                Route::post($path . '/' . $slug, $controllerClassName . '@' . $methodName);
             }
         }
-        Route::get($path, 'QuoteController@anyIndex');
+
+        Route::get($path, $controllerClassName . '@anyIndex');
     }
 
     protected static function stringStartsWith($string, $match) {
@@ -43,9 +44,10 @@ class AdvancedRoute {
         foreach ($method->getParameters() as $parameter) {
             if ($parameter->hasType()) {
                 continue;
-            }            
+            }
             $slug .= sprintf('/{%s%s}', $parameter->getName(), $parameter->isDefaultValueAvailable() ? '?' : '');
         }
         return $slug;
     }
+
 }
