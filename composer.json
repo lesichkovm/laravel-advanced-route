@@ -16,5 +16,8 @@
     ],
     "autoload": {
         "files": ["src/AdvancedRoute.php"]
+    },
+     "require": {
+        "Laravel/framework": "5.3.*"
     }
 }
