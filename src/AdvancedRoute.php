@@ -52,7 +52,7 @@ class AdvancedRoute {
             $slug .= sprintf('/{%s%s}', $parameter->getName(), $parameter->isDefaultValueAvailable() ? '?' : '');
         }
         
-        if($slug[0] == '/')
+        if($slug != null && $slug[0] == '/')
             return substr($slug,1);
         
         return $slug;
