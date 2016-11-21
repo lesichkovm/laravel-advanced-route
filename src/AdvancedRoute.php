@@ -41,12 +41,20 @@ class AdvancedRoute {
         $cleaned = str_replace(['any', 'get', 'post', 'delete'], '', $methodName);
         $snaked = \Illuminate\Support\Str::snake($cleaned, ' ');
         $slug = str_slug($snaked, '-');
+        
+        if($slug == "index")
+            $slug = "";
         foreach ($method->getParameters() as $parameter) {
-            if ($parameter->hasType()) {
+
+            if ($parameter->getClass() != null) {
                 continue;
             }
             $slug .= sprintf('/{%s%s}', $parameter->getName(), $parameter->isDefaultValueAvailable() ? '?' : '');
         }
+        
+        if($slug[0] == '/')
+            return substr($slug,1);
+        
         return $slug;
     }
 
