@@ -18,6 +18,6 @@
         "files": ["src/AdvancedRoute.php"]
     },
      "require": {
-        "Laravel/framework": "5.3.*"
+        "Laravel/framework": "5.*"
     }
 }
