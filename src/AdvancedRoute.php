@@ -14,7 +14,7 @@ class AdvancedRoute {
     private static $methodNameAtStartOfStringPattern = null;
 
     public static function controller($path, $controllerClassName) {
-        $class = new ReflectionClass(app()->getNamespace().'Http\Controllers\\' . $controllerClassName);
+        $class = new ReflectionClass(app()->getNamespace() . 'Http\Controllers\\' . $controllerClassName);
 
         $routes = [];
 
