@@ -76,6 +76,24 @@ class AdvancedRoute {
         }
     }
 
+    /**
+     * Ability to use several path-controller pairs
+     *
+     * Example:
+     * [
+     *     '/personal' => 'PersonalController',
+     *     '/news'     => 'NewsController',
+     *     ...
+     * ]
+     *
+     * @param array $routes
+     */
+    public static function controllers(array $routes) {
+        foreach ($routes as $path => $controllerClassName) {
+            static::controller($path, $controllerClassName);
+        }
+    }
+
     protected static function stringStartsWith($string, $match) {
         return (substr($string, 0, strlen($match)) == $match) ? true : false;
     }
