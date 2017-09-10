@@ -1,6 +1,6 @@
 {
     "name": "lesichkovm/laravel-advanced-route",
-    "description": "Advanced route class for Laravel",
+    "description": "Advanced route class for Laravel - restoring implicit controllers to the framework.",
     "version": "1.0.0",
     "type": "library",
     "keywords": ["route", "advanced", "laravel", "php", "lesichkov"],    
@@ -18,6 +18,6 @@
         "files": ["src/AdvancedRoute.php"]
     },
      "require": {
-        "Laravel/framework": "5.*"
+        "laravel/framework": "5.*"
     }
 }
