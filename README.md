@@ -1,5 +1,5 @@
 # Laravel Advanced Route
-An advanced route for Laravel 5.3 to support controllers
+An advanced route for Laravel 5.3, 5.4 and 5.5 to support controllers
 
 ## Background ##
 In Laravel 5.3 the advanced functionality Route::controller was removed.
