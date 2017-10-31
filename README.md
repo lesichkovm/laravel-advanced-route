@@ -43,9 +43,9 @@ Route::group(['prefix' => '/', 'middleware' => []], function () {
 Multiple controllers mapping:
 ```php
 AdvancedRoute::controllers([
-	'/auth' => 'AuthController',
-	'/cms' => 'CmsController',
-	'/shop' => 'ShopController',
+    '/auth' => 'AuthController',
+    '/cms' => 'CmsController',
+    '/shop' => 'ShopController',
 ]);
 ```
 
