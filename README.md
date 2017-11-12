@@ -40,6 +40,15 @@ Route::group(['prefix' => '/', 'middleware' => []], function () {
 });
 ```
 
+Multiple controllers mapping:
+```php
+AdvancedRoute::controllers([
+    '/auth' => 'AuthController',
+    '/cms' => 'CmsController',
+    '/shop' => 'ShopController',
+]);
+```
+
 ## Acknowledgements ##
 
 Laravel Advanced Route is only possible thanks to all the awesome [contributors](https://github.com/lesichkovm/laravel-advanced-route/graphs/contributors)!
