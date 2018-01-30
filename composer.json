@@ -4,7 +4,7 @@
     "type": "library",
     "keywords": ["route", "advanced", "laravel", "php", "lesichkov"],    
     "homepage": "http://github.com/lesichkovm/laravel-advanced-route",
-    "license": "commercial",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Milan Lesichkov",
