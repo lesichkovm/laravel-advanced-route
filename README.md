@@ -7,6 +7,10 @@ This class fixes this shortcoming.
 
 ## Installation ##
 
+### a) via composer ###
+
+### b) manually ###
+
 Add the following to your composer file:
 
 ```json
