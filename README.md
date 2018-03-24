@@ -33,7 +33,7 @@ Add the following line to where you want your controller to be mapped:
 AdvancedRoute::controller('/{YOUR PATH}', '{YOUR CONTROLLER FULL NAME}');
 ```
 
-Full Example:
+### Full Example: ###
 
 ```php
 Route::group(['prefix' => '/', 'middleware' => []], function () {
@@ -44,7 +44,8 @@ Route::group(['prefix' => '/', 'middleware' => []], function () {
 });
 ```
 
-Multiple controllers mapping:
+### Multiple controllers mapping: ###
+
 ```php
 AdvancedRoute::controllers([
     '/auth' => 'AuthController',
@@ -53,7 +54,10 @@ AdvancedRoute::controllers([
 ]);
 ```
 
-Missing method:
+### Missing method: ###
+
+If you have a controller with a few predefined routes, you can add the missingMethod() to handle all undefined sub-paths for that controller's path.
+
 ```php
 class WikiController extends Controller
 {
