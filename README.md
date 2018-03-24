@@ -7,7 +7,7 @@ This class fixes this shortcoming.
 
 ## Installation ##
 
-### a) via composer ###
+### a) via composer (preferred) ###
 
 ### b) manually ###
 
