@@ -53,6 +53,18 @@ AdvancedRoute::controllers([
 ]);
 ```
 
+Missing method:
+```php
+class WikiController extends Controller
+{
+    public function getIndex() { /* show main page or list of content */ }
+    public function getCreate() { /* a page to add a new wiki-page */ }
+    public function postCreate() { /* add a new wiki-page */ }
+    public function missingMethod() { /* do anything elselook up the path in the wiki-database */ }
+}
+```
+
+
 ## Acknowledgements ##
 
 Laravel Advanced Route is only possible thanks to all the awesome [contributors](https://github.com/lesichkovm/laravel-advanced-route/graphs/contributors)!
