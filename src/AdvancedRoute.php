@@ -56,21 +56,14 @@ class AdvancedRoute {
             return (strcmp($a->slug, $b->slug));
         });
 
+        $addMissingMethod = false;
         foreach ($methods as $method) {
             $slug = $method->slug;
             $methodName = $method->name;
             $slug_path = $path . '/' . $slug;
 
-            if($methodName == 'missingMethod')
-            {
-                $slug_path = str_replace('//', '/', $path.'/'.'{_missing}');
-                Route::any($slug_path, $controllerClassName . '@' . $methodName);
-
-                $route = new \stdClass();
-                $route->httpMethod = 'any';
-                $route->prefix = sprintf("Route::%-4s('%s',", 'any', $slug_path);
-                $route->target = $controllerClassName . '@' . $methodName;
-                $routes[] = $route;
+            if ($methodName == 'missingMethod') {
+                $addMissingMethod = true;
                 continue;
             }
 
@@ -87,6 +80,20 @@ class AdvancedRoute {
                     break;
                 }
             }
+        }
+
+        // add the _missing route last otherwise it will be hit by routes whose
+        // method names start with a letter greater than the letter 'm'
+        if ($addMissingMethod) {
+                $methodName = 'missingMethod';
+                $slug_path = str_replace('//', '/', $path.'/'.'{_missing}');
+                Route::any($slug_path, $controllerClassName . '@' . $methodName);
+
+                $route = new \stdClass();
+                $route->httpMethod = 'any';
+                $route->prefix = sprintf("Route::%-4s('%s',", 'any', $slug_path);
+                $route->target = $controllerClassName . '@' . $methodName;
+                $routes[] = $route;
         }
 
         if (self::EMIT_ROUTE_STATEMENTS) {
