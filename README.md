@@ -7,7 +7,9 @@ This class fixes this shortcoming.
 
 ## Installation ##
 
-### a) via composer ###
+### a) via composer (recommended) ###
+
+composer require lesichkovm/laravel-advanced-route
 
 ### b) manually ###
 
