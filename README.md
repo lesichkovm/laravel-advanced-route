@@ -75,5 +75,3 @@ class WikiController extends Controller
 
 Laravel Advanced Route is only possible thanks to all the awesome [contributors](https://github.com/lesichkovm/laravel-advanced-route/graphs/contributors)!
 
-<a href="https://github.com/lesichkovm/laravel-advanced-route/graphs/contributors"><img src="https://opencollective.com/lesichkovm/laravel-advanced-route/contributors.svg?width=890" /></a>
-
