@@ -14,6 +14,46 @@ Specifying the controller methods with get/post/any prefixes improves readabilit
 
 Does your router file not fit the screen and you have to scroll to see all routes? Have you split your routes in separate router files, and included these in one router files? Do you not feel comfortable removing routes, as these might be used somewhere? Do you use names to "name" your routes? Then its time to think outside the box and go advanced.
 
+## How it works ##
+
+The advanced route allows you to easily define a single route to handle every action in a controller class. First, define the route using the AdvancedRoute::controller method. The controller method accepts two arguments. The first is the base URI the controller handles, while the second is the class name of the controller. Next, just add methods to your controller. The method names should begin with the HTTP verb they respond to followed by the title case version of the URI.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+class UserController extends Controller {
+    /**
+     * Responds to any (GET,POST, etc) request to /users
+     */
+    public function anyIndex() {
+        //
+    }
+
+    /**
+     * Responds to requests to GET /users/show/1
+     */
+    public function getShow($id) {
+        //
+    }
+
+    /**
+     * Responds to requests to GET /users/admin-profile
+     */
+    public function getAdminProfile() {
+        //
+    }
+
+    /**
+     * Responds to requests to POST /users/profile
+     */
+    public function postProfile() {
+        //
+    }
+}
+```
+
 ## Installation ##
 
 ### a) via composer (recommended) ###
