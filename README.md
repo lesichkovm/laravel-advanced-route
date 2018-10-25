@@ -126,7 +126,7 @@ Laravel Advanced Route is only possible thanks to all the awesome [contributors]
 
 ## Alternatives ##
 
-Is Laravel too bloated and slow, yes tell me about it? You want to go doen the pure PHP route? Well, here are some notable packages, which will allow you to keep the niceties of the Larael routing:
+Is Laravel too bloated and slow, yes tell me about it? You want to go down the pure PHP route? Well, here are some notable packages, which will allow you to keep the niceties of the Larael routing:
 
 https://github.com/mrjgreen/phroute
 
