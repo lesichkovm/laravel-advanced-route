@@ -58,7 +58,9 @@ class UserController extends Controller {
 
 ### a) via composer (recommended) ###
 
+```
 composer require lesichkovm/laravel-advanced-route
+```
 
 ### b) manually ###
 
