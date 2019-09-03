@@ -7,6 +7,10 @@ This class fixes this shortcoming.
 
 ## Installation ##
 
+### a) via composer (preferred) ###
+
+### b) manually ###
+
 Add the following to your composer file:
 
 ```json
@@ -29,7 +33,7 @@ Add the following line to where you want your controller to be mapped:
 AdvancedRoute::controller('/{YOUR PATH}', '{YOUR CONTROLLER FULL NAME}');
 ```
 
-Full Example:
+### Full Example: ###
 
 ```php
 Route::group(['prefix' => '/', 'middleware' => []], function () {
@@ -40,7 +44,8 @@ Route::group(['prefix' => '/', 'middleware' => []], function () {
 });
 ```
 
-Multiple controllers mapping:
+### Multiple controllers mapping: ###
+
 ```php
 AdvancedRoute::controllers([
     '/auth' => 'AuthController',
@@ -48,6 +53,21 @@ AdvancedRoute::controllers([
     '/shop' => 'ShopController',
 ]);
 ```
+
+### Missing method: ###
+
+If you have a controller with a few predefined routes, you can add the missingMethod() to handle all undefined sub-paths for that controller's path.
+
+```php
+class WikiController extends Controller
+{
+    public function getIndex() { /* show main page or list of content */ }
+    public function getCreate() { /* a page to add a new wiki-page */ }
+    public function postCreate() { /* add a new wiki-page */ }
+    public function missingMethod() { /* do anything elselook up the path in the wiki-database */ }
+}
+```
+
 
 ## Acknowledgements ##
 

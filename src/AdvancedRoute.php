@@ -59,15 +59,29 @@ class AdvancedRoute {
         foreach ($methods as $method) {
             $slug = $method->slug;
             $methodName = $method->name;
+            $slug_path = $path . '/' . $slug;
+
+            if($methodName == 'missingMethod')
+            {
+                $slug_path = str_replace('//', '/', $path.'/'.'{_missing}');
+                Route::any($slug_path, $controllerClassName . '@' . $methodName);
+
+                $route = new \stdClass();
+                $route->httpMethod = 'any';
+                $route->prefix = sprintf("Route::%-4s('%s',", 'any', $slug_path);
+                $route->target = $controllerClassName . '@' . $methodName;
+                $routes[] = $route;
+                continue;
+            }
 
             $httpMethod = null;
             foreach (self::$httpMethods as $httpMethod) {
                 if (self::stringStartsWith($methodName, $httpMethod)) {
-                    Route::$httpMethod($path . '/' . $slug, $controllerClassName . '@' . $methodName);
+                    Route::$httpMethod($slug_path, $controllerClassName . '@' . $methodName);
 
                     $route = new \stdClass();
                     $route->httpMethod = $httpMethod;
-                    $route->prefix = sprintf("Route::%-4s('%s',", $httpMethod, $path . '/' . $slug);
+                    $route->prefix = sprintf("Route::%-4s('%s',", $httpMethod, $slug_path);
                     $route->target = $controllerClassName . '@' . $methodName;
                     $routes[] = $route;
                     break;
