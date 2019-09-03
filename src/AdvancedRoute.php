@@ -85,15 +85,15 @@ class AdvancedRoute {
         // add the _missing route last otherwise it will be hit by routes whose
         // method names start with a letter greater than the letter 'm'
         if ($addMissingMethod) {
-                $methodName = 'missingMethod';
-                $slug_path = str_replace('//', '/', $path.'/'.'{_missing}');
-                Route::any($slug_path, $controllerClassName . '@' . $methodName);
+            $methodName = 'missingMethod';
+            $slug_path = str_replace('//', '/', $path.'/'.'{_missing}');
+            Route::any($slug_path, $controllerClassName . '@' . $methodName);
 
-                $route = new \stdClass();
-                $route->httpMethod = 'any';
-                $route->prefix = sprintf("Route::%-4s('%s',", 'any', $slug_path);
-                $route->target = $controllerClassName . '@' . $methodName;
-                $routes[] = $route;
+            $route = new \stdClass();
+            $route->httpMethod = 'any';
+            $route->prefix = sprintf("Route::%-4s('%s',", 'any', $slug_path);
+            $route->target = $controllerClassName . '@' . $methodName;
+            $routes[] = $route;
         }
 
         if (self::EMIT_ROUTE_STATEMENTS) {
@@ -134,7 +134,7 @@ class AdvancedRoute {
 
         $cleaned = preg_replace(self::$methodNameAtStartOfStringPattern, '', $method->name);
         $snaked = \Illuminate\Support\Str::snake($cleaned, ' ');
-        $slug = str_slug($snaked, '-');
+        $slug = \Illuminate\Support\Str::slug($snaked, '-');
 
         if ($slug == "index") {
             $slug = "";
