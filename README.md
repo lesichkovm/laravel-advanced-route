@@ -1,18 +1,18 @@
 # Laravel Advanced Route
-An advanced route for Laravel 5.3, 5.4, 5.5, 5.6, 5.8, 6.0, 7.0, 8.0, 9.0, 10.0 to support controllers
+An advanced route for Laravel 5.3, 5.4, 5.5, 5.6, 5.8, 6.0, 7.0, 8.0, 9.0, 10.0 to support controllers.
 
 ## Background ##
 In Laravel 5.3 the advanced functionality Route::controller was removed.
 This class fixes this shortcoming.
 
 ## Reason ##
-The default router is sufficient for small projects. Once the project starts to grow, placing all possible route definitions in the router file start to become harder to understand and follow. Quite often the router file becomes so messy, that the developer is afraid to modify/remove routes (even if these might be unused) in order to not break the application unexpectedly.
+The default router is sufficient for small projects. Once the project starts to grow, placing all possible route definitions in the router file starts to become harder to understand and follow. Quite often the router file becomes so messy that the developer is afraid to modify/remove routes (even if these might be unused) in order to not break the application unexpectedly.
 
 The AdvancedRoute::controller gives the control to the controller itself, and makes each controller responsible for its own routing (destiny).
 
 Specifying the controller methods with get/post/any prefixes improves readability, and allows to easily understand what HTTP method is being used to call the functionality just by viewing the method.
 
-Does your router file not fit the screen and you have to scroll to see all routes? Have you split your routes in separate router files, and included these in one router files? Do you not feel comfortable removing routes, as these might be used somewhere? Do you use names to "name" your routes? Then its time to think outside the box and go advanced.
+Does your router file not fit the screen and you have to scroll to see all routes? Have you split your routes in separate router files, and included these in one router file? Do you not feel comfortable removing routes, as these might be used somewhere? Do you use names to "name" your routes? Then it's time to think outside the box and go advanced.
 
 ## How it works ##
 
@@ -128,7 +128,7 @@ Laravel Advanced Route is only possible thanks to all the awesome [contributors]
 
 ## Alternatives ##
 
-Is Laravel too bloated and slow, yes tell me about it? You want to go down the pure PHP route? Well, here are some notable packages, which will allow you to keep the niceties of the Larael routing:
+Is Laravel too bloated and slow? Yes, tell me about it! Do you want to go down the pure PHP route? Well, here are some notable packages which will allow you to keep the niceties of the Laravel routing:
 
 https://github.com/mrjgreen/phroute
 
