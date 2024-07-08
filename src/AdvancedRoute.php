@@ -72,6 +72,12 @@ class AdvancedRoute {
                 if (self::stringStartsWith($methodName, $httpMethod)) {
                     Route::$httpMethod($slug_path, $controllerClassName . '@' . $methodName);
 
+                    $routeName = strtolower(str_replace('Controller', '', substr($controllerClassName, strrpos($controllerClassName,"\\")+1)));
+                    $routeName .= ".{$httpMethod}.";
+                    $routeName .= str_replace($httpMethod, '', strtolower($methodName));
+
+                    Route::$httpMethod($slug_path, $controllerClassName . '@' . $methodName)->name($routeName);
+
                     $route = new \stdClass();
                     $route->httpMethod = $httpMethod;
                     $route->prefix = sprintf("Route::%-4s('%s',", $httpMethod, $slug_path);
