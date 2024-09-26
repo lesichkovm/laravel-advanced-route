@@ -90,10 +90,10 @@ AdvancedRoute::controller('/{YOUR PATH}', '{YOUR CONTROLLER FULL NAME}');
 
 ```php
 Route::group(['prefix' => '/', 'middleware' => []], function () {
-    AdvancedRoute::controller('/auth', 'AuthController');
-    AdvancedRoute::controller('/cms', 'CmsController');
-    AdvancedRoute::controller('/shop', 'ShopController');
-    Route::any('/', 'WebsiteController@anyIndex');
+    AdvancedRoute::controller('/auth', '\\' . \App\Http\Controllers\AuthController);
+    AdvancedRoute::controller('/cms', '\\' . \App\Http\Controllers\CmsController);
+    AdvancedRoute::controller('/shop', '\\' . \App\Http\Controllers\ShopController);
+    Route::any('/', '\\' . \App\Http\Controllers\WebsiteController@anyIndex);
 });
 ```
 
@@ -101,9 +101,9 @@ Route::group(['prefix' => '/', 'middleware' => []], function () {
 
 ```php
 AdvancedRoute::controllers([
-    '/auth' => 'AuthController',
-    '/cms' => 'CmsController',
-    '/shop' => 'ShopController',
+    '/auth' => '\\' . \App\Http\Controllers\AuthController,
+    '/cms' => '\\' . \App\Http\Controllers\CmsController,
+    '/shop' => '\\' . \App\Http\Controllers\ShopController,
 ]);
 ```
 
