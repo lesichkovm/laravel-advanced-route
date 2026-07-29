@@ -122,6 +122,13 @@ class WikiController extends Controller
 ```
 
 
+## Testing ##
+
+```sh
+composer install
+composer test
+```
+
 ## Acknowledgements ##
 
 Laravel Advanced Route is only possible thanks to all the awesome [contributors](https://github.com/lesichkovm/laravel-advanced-route/graphs/contributors)!
