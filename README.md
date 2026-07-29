@@ -1,5 +1,8 @@
 # Laravel Advanced Route
-An advanced route for Laravel 5.3, 5.4, 5.5, 5.6, 5.8, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 to support controllers.
+[![Tests](https://github.com/lesichkovm/laravel-advanced-route/actions/workflows/tests.yml/badge.svg)](https://github.com/lesichkovm/laravel-advanced-route/actions/workflows/tests.yml)
+[![Packagist](https://img.shields.io/packagist/v/lesichkovm/laravel-advanced-route.svg)](https://packagist.org/packages/lesichkovm/laravel-advanced-route)
+
+An advanced route for Laravel 5.3, 5.4, 5.5, 5.6, 5.8, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0 to support controllers.
 
 ## Background ##
 In Laravel 5.3 the advanced functionality Route::controller was removed.
