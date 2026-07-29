@@ -59,9 +59,21 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
 
+      - name: Map testbench version
+        id: testbench
+        run: |
+          case "${{ matrix.laravel }}" in
+            "9.*")  echo "version=^7.0" >> $GITHUB_OUTPUT ;;
+            "10.*") echo "version=^8.0" >> $GITHUB_OUTPUT ;;
+            "11.*") echo "version=^9.0" >> $GITHUB_OUTPUT ;;
+            "12.*") echo "version=^10.0" >> $GITHUB_OUTPUT ;;
+            "13.*") echo "version=^11.0" >> $GITHUB_OUTPUT ;;
+          esac
+
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-update
+          composer config policy.advisories.block false
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ steps.testbench.outputs.version }}" --no-update
           composer update --prefer-dist --no-interaction --no-audit
 
       - name: Run tests
